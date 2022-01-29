@@ -1,0 +1,24 @@
+nav {
+  height: 120px;
+  width: 100%;
+  background-color: #4056a1;
+  color: #ffffff;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+}
+.nav-text {
+  font-family: "Bungee";
+  font-size: 1.5em;
+  float: left;
+}
+.nav-btn {
+  float: right;
+  position: fixed;
+  right: 2.5em;
+  text-align: center;
+}
