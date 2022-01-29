@@ -14,8 +14,6 @@ $(document).ready(function () {
         $("#error-message").hide();
     }
 
-
-
     $('#createTweet').submit(function (e) {
         e.preventDefault();
         const text = $("#tweet-text").val();
@@ -34,6 +32,9 @@ $(document).ready(function () {
             method: 'POST', data: str, complete: (xhr, status) => {
                 if (status === "success") {
                     loadTweets();
+                    $("#tweet-text").val("");
+                    const counter = 140 - $("#tweet-text").val().length;
+                    $("#counter").text(counter);
                 }
             }
         })
@@ -41,7 +42,6 @@ $(document).ready(function () {
     const escape = function (str) {
         let div = document.createElement("div");
         div.appendChild(document.createTextNode(str));
-        console.log(div);
         return div.innerHTML;
     };
 
@@ -81,7 +81,6 @@ $(document).ready(function () {
     const loadTweets = function () {
         $.ajax('http://localhost:8080/tweets', { method: 'GET' })
             .then(function (results) {
-                console.log(results);
                 renderTweets(results);
             });
     }
